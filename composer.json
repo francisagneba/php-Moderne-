@@ -1,0 +1,17 @@
+{
+    "name": "franc/projet-symfony",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fagneba",
+            "email": "francis.agneba@gmail.com"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^3.8"
+    }
+}
