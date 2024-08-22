@@ -15,8 +15,15 @@ COMPOSER
 
 Pour créer un fichier composer.json, onlance la commande : composer init -n , Ensuite pour installer l'autoload : composer dump-autoload.
 
-Packagist.org est le depot principale des librairies de composer. Donc quand on cree une librairie qu'on veut partager ,on la depose dans packagist.Si on veut aussi des librairies pour notre projet, on ira les chercher sur packagist. example: date...
+Packagist.org est le dépôt principale des librairies de composer. Donc quand on cree une librairie qu'on veut partager ,on la depose dans packagist.Si on veut aussi des librairies pour notre projet, on ira les chercher sur packagist. example: date...
 
 Voici le lien des commandes du PHP moderne : https://cheatography.com/liorchamla/cheat-sheets/les-commandes-php-et-composer-a-connaitre/
+
+SYMFONY
+
+Pour travailler avec Symfony en Https on lance la commande suivante: C:\Users\franc\Desktop\ecommerce> symfony server:ca:install
+
+Ensuite pour lancer le serveur Symfony en local on fait: C:\Users\franc\Desktop\ecommerce> symfony serve -d
+Pour arrêter le serveur on lance la commande : Symfony server:stop
 
 
