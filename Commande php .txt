@@ -26,4 +26,37 @@ Pour travailler avec Symfony en Https on lance la commande suivante: C:\Users\fr
 Ensuite pour lancer le serveur Symfony en local on fait: C:\Users\franc\Desktop\ecommerce> symfony serve -d
 Pour arrêter le serveur on lance la commande : Symfony server:stop
 
+Pour utiliser les Annotations on fait :composer require annotations, qui est contenu dans Symfony Flex, il améliore le comportement de composer.
+Symfony flex est un plugin qui ajoute des fonctionnalités à Composer.
 
+LE CONTAINER DE SERVICES 
+Un service est une Classe ou un Outils qui effectuent des mission pour nous. On les utilise en faisant une Injection de dépendance.
+C:\Users\franc\Desktop\ecommerce> php bin/console debug:autowiring  .Cette commande me permet de lister les services, prévu dans Symfony.
+Exemple en tapant php bin/console debug:autowiring log il va me ressortir la liste de tous les services de log à utiliser.
+On peux se faire livrer les services, c'est ce qu'on appelle AUTOWIRING.
+
+Donc dans Symfony on utilise une librairie qui s'appelle : Symfony/dependency-injection qui contient un Container de service qui lui sait construire des objets et vous le donne.
+
+Comment définit des librairies externe qu'on va télécharger via Composer : on doit les déclarer des le fichier Config/services.yaml
+Exemple: Cocur\Slugify\Slugify:~  . Comme ça , le container de service va se charger de créer les objets pour nous.
+
+Quelle est la difference entre une Bibliothèque et un Bundle Symfony ?
+Un Bundle est une librairie comme les autres qu'on va aller déclarer dans le fichier bundles.php, donc le container de service va le reconnaitre et travailler avec lui. on n'a pas besoin de le déclarer dans le fichier servive.yaml , comme les autres librairie pour qu'il le prenne en compte.
+Exemple on va installer la librairie TWIG. on fais : composer require twig
+PS C:\Users\franc\Desktop\ecommerce> php bin/console debug:autowiring --all twig . Cette commande permet de savoir si Twig est connu par notre Container de service .
+
+TWIG :Lien de la documentation :https://twig.symfony.com
+C'est un langage de Template qui permet d'écrit HTML plus simplement. C'est une syntaxe plus simple. on va retrouver les boucles For et le condition. if/ elseif/else.
+
+public function hello(string $prenom, Environment $twig): Response
+html:5  dans le fichier hello.html.twig
+
+Héritage de Template : les block dans notre Template de Base sont des Trous don on peut changer le contenu.
+Le mot clé extend pour hériter du Template de base exemple : {% extends "base.html.twig" %}
+le mot clé include pour inclure un Template dans un autre Template exemple: {% include "_formateur.html.twig" %}
+
+Voici comment créer une variable en Twig : {% set formateur = formateur1 %}
+
+Utilisation de BOOTSWATCH pour la vu de notre site.
+
+DOCTRINE
