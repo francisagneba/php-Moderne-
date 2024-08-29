@@ -87,3 +87,31 @@ EntityManagerInterface : il permet de manipuler les objets de la BD.
 C:\Users\franc\Desktop\ecommerce> composer require orm-fixtures
 
 Création de faux données :php bin/console doctrine:fixtures:load
+
+----------------------------------------------------------------------------------------------------------------------------------
+Débugger dans Symfony avec le Debug Pack !
+Commande d'instalation du package: C:\Users\franc\Desktop\ecommerce> composer require debug
+
+------------------------------------------------------------------------------------------------------------------------------
+File d'ariane 
+pour le mettre en place , on va dans notre Template sur BOOTSWATCH et on va sur Breadcrumbs.
+
+C:\Users\franc\Desktop\ecommerce> php bin/console debug:autowiring --all url
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Les Formulaires.
+C:\Users\franc\Desktop\ecommerce> composer require form
+
+Comment créer des formulaires? On va commencer par créer le controller.
+
+public function create(FormFactoryInterface $factory)
+
+Pour profiter de boostrape dans mes formulaires:
+
+{% extends "base.html.twig" %}
+
+{% form_theme formView 'bootstrap_4_layout.html.twig' %}
+
+http://picsum.photo/400/400
+
