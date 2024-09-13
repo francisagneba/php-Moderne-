@@ -1,3 +1,5 @@
+Racoucie clavier pour commenter est : ctrl + /
+
 Commande php :
 Commande pour lancer le serveur php
 php -S localhost:8000
@@ -115,3 +117,83 @@ Pour profiter de boostrape dans mes formulaires:
 
 http://picsum.photo/400/400
 
+php bin/console make:form CategoryType
+
+Exercice
+php bin/console make:controller CategoryController
+
+Route admin/category/create
+
+Route admin/category/{id}/edit
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Le cycle de vie d'un formulaire.
+Il y a 2 grandes étapes: La création du formulaire : On va injecter des données et la soumission des données
+2ème étape, la Récupération des données. Se suivra les évènements du Formulaires: exemple PRE_SET_DATA, le formulaire vient de recevoir des données (setData()) mais ne les a pas encore intégré. Le POST_SET_DATA: le formulaire vient d'intégrer les données envoyées lors du setData().
+Le PRE_SUBMIT: le formulaire constate les données soumises via submit() ou handleRequest(), sans faire le tri ni les prendre en compte. 
+le SUBMIT : le formulaire a fait le tri dans les données soumises et les arrange sous forme de tableau associatif.
+Le POST_SUBMIT: le formulaire a intégré les données soumises (sous la forme d'un tableau ou d'un objet)
+
+Transformer des données avec un DataTransformer
+
+Introduction à la validation des données avec Symfony
+
+C:\Users\franc\Desktop\ecommerce> composer req validator
+
+Pour voir les services qu'on a installer , on lance :C:\Users\franc\Desktop\ecommerce> php bin/console debug:autowiring valid Et on voit:
+Validates PHP values against constraints.
+ Symfony\Component\Validator\Validator\ValidatorInterface (debug.validator)
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Validation d'objets grâce aux annotations
+Pour vider le cache : php bin/console cache:clear
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Introduction à la sécurité dans Symfony
+
+On installe le composant de sécurité avec composer : PS C:\Users\franc\Desktop\ecommerce> composer req security
+
+Si un nouveau bundle a été installer , cela veut dire que de nouveaux services ont été installés .Pour voir les services installer on fait:
+PS C:\Users\franc\Desktop\ecommerce> php bin/console debug:autowiring security
+
+On va créer la classe des Utilisateurs avec la CLI de Symfony : php bin/console make:user User
+Pour la mise à jour de notre entité User: C:\Users\franc\Desktop\ecommerce> php bin/console make:entity User
+C:\Users\franc\Desktop\ecommerce> php bin/console make:migration
+C:\Users\franc\Desktop\ecommerce> php bin/console doctrine:migrations:migrate
+
+Après les fixtures , on lance la commande suivante pour le load dans la DB : C:\Users\franc\Desktop\ecommerce> php bin/console d:f:l --no-interaction
+
+Nous allons hasher les mots de passe dans notre DB :C:\Users\franc\Desktop\ecommerce> php bin/console debug:autowiring password 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+ Authentification des utilisateurs avec La commande make:auth.
+C:\Users\franc\Desktop\ecommerce> php bin/console make:controller CartController
+
+On veut stocker quelque chose en Session
+On va créer la classe avec: LoginFormAuthenticator
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Introduction aux autorisations dans Symfony 5
+
+Encapsuler la logique d'accès dans un Voter
+C:\Users\franc\Desktop\ecommerce> php bin/console make:voter CategoryVoter
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Mise en place du panier et découverte de la session
+
+Se faire "livrer" la session grâce à la SessionInterface
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Créer l'entité Purchase (commande)
+
+ C:\Users\franc\Desktop\ecommerce> php bin/console make:entity Purchase
+
+//après avoir créer l'entity on l'envoie dans la BD et cela va créer une Migration en faisant:
+C:\Users\franc\Desktop\ecommerce> php bin/console make:migration
+C:\Users\franc\Desktop\ecommerce> php bin/console d:m:m --no-interaction
+
+C:\Users\franc\Desktop\ecommerce> php bin/console d:f:l --no-interaction
+
+Après on retravaille la fixture et on lui lance cette commande: C:\Users\franc\Desktop\ecommerce> php bin/console d:f:l --no-interaction
+
+@isGranted("ROLE_USER") veut dire si la personne est connecté : on le met dans les annotations.
