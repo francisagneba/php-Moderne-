@@ -197,3 +197,26 @@ C:\Users\franc\Desktop\ecommerce> php bin/console d:f:l --no-interaction
 Après on retravaille la fixture et on lui lance cette commande: C:\Users\franc\Desktop\ecommerce> php bin/console d:f:l --no-interaction
 
 @isGranted("ROLE_USER") veut dire si la personne est connecté : on le met dans les annotations.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Pour vider le cache : php bin/console cache:clear
+Pour debuger la route : php bin/console debug:route
+Formulaire de commande:
+C:\Users\franc\Desktop\ecommerce> php bin/console make:form CartConfirmationType
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+Créer une intention de paiement avec Stripe
+C:\Users\franc\Desktop\ecommerce> composer require stripe/stripe-php
+
+Carte test : Payment succeeds  4242 4242 4242 4242 / 
+             Payment requires authentication 4000 0025 0000 3155   /
+             Payment is declined  4000 0000 0000 9995
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Le Evènements dans Symfony
+
+PS C:\Users\franc\Desktop\ecommerce> php bin/console debug:event-dispatcher
+
+PS C:\Users\franc\Desktop\ecommerce> php bin/console debug:event-dispatcher kernel.request
+
+C:\Users\franc\Desktop\ecommerce> php bin/console debug:event-dispatcher product.view
