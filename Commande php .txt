@@ -31,6 +31,21 @@ php bin/console make:admin:dashboard
 On va ensuite créer le CRUD de notre dashbord:
 php bin/console make:admin:crud
 
+5- Mise en place de jeux de faux données: les Fixtures
+on installe d'abord le composant ou packer: composer require orm-fixtures --dev
+Ensuite : php bin/console make:fixtures
+          php bin/console doctrine:fixtures:load
+
+6- On cree l'entité Setting 
+php bin/console make:entity
+php bin/console make:admin:crud
+
+On cree ensuite la table setting n'existe pas dans votre base de données:
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+
+section 22: Creation d'un slide
+
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
