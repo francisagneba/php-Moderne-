@@ -44,9 +44,16 @@ On cree ensuite la table setting n'existe pas dans votre base de données:
 php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 
-section 22: Creation d'un slide
+7- section 22: Creation d'un slide
+Modélisation du Slider
+php bin/console make:entity Sliders
+On cree ensuite la migration :
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+On crée le CRUD
+php bin/console make:admin:crud
 
-
+8- Création d'une entité page pour inserer les produits Section 24 cours 4
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 IVS-CA-AVE-ALGOPSGWOMXFC0QV     Dossier AVE pour le CANADA.
