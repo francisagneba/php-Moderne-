@@ -53,8 +53,13 @@ php bin/console doctrine:migrations:migrate
 On crée le CRUD
 php bin/console make:admin:crud
 
-8- Création d'une entité page pour inserer les produits Section 24 cours 4
+8- Création d'une entité page pour inserer les produits.
 
+9- Mise en pace du panier: Pour le faire , on va faire appel à la session pour sauvegarder les produits .
+php bin/console make:controller Cart
+
+10-Gestion des Wish Lists: Section 28 cours 186 .Mise en place du Wish list
+PS C:\Users\franc\Desktop\express-ecommerce> php bin/console make:controller WishList
 -------------------------------------------------------------------------------------------------------------------------------------------
 IVS-CA-AVE-ALGOPSGWOMXFC0QV     Dossier AVE pour le CANADA.
 ----------------------------------------------------------------------------------------------------------------------------------------------
