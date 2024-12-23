@@ -60,6 +60,91 @@ php bin/console make:controller Cart
 
 10-Gestion des Wish Lists: Section 28 cours 186 .Mise en place du Wish list
 PS C:\Users\franc\Desktop\express-ecommerce> php bin/console make:controller WishList
+
+11-Gestion de la page Checkout : Section 29cours 188
+C:\Users\franc\Desktop\express-ecommerce> php bin/console make:controller Checkout
+Ici on le relie directement au Service Cart , c'est à dire le panier qui nous permettra de créer notre Checkout.
+
+12-Gestion des données de profil : Section 30 cours 191
+On va créer une table Adresse qui va gérer les adresses des utilusateurs.
+ C:\Users\franc\Desktop\express-ecommerce> php bin/console make:entity  
+ C:\Users\franc\Desktop\express-ecommerce> php bin/console make:entity Address
+ Your entity already exists! So let's add some new fields!
+
+ New property name (press <return> to stop adding fields):
+ > user
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > User
+
+What type of relationship is this?
+
+On veut Ajouter un CRUD à l'entité ADDRESS !
+C:\Users\franc\Desktop\express-ecommerce> php bin/console make:crud
+
+ The class name of the entity to create CRUD (e.g. GentleKangaroo):
+ > Address
+
+ Choose a name for your controller class (e.g. AddressController) [AddressController]:
+ > 
+
+ Do you want to generate tests for the controller?. [Experimental] (yes/no) [no]
+
+section30 cours 196 
+
+
+
+ ------------ ------------------------------------------------------------------------------------------------------------------------------------------ 
+  Type         Description
+ ------------ --------------------------------------------------------------------
+  ManyToOne    Each Address relates to (has) one User.
+               Each User can relate to (can have) many Address objects.
+
+  OneToMany    Each Address can relate to (can have) many User objects.
+               Each User relates to (has) one Address.
+
+  ManyToMany   Each Address can relate to (can have) many User objects.
+               Each User can also relate to (can also have) many Address objects.
+
+  OneToOne     Each Address relates to (has) exactly one User.
+               Each User also relates to (has) exactly one Address.
+ ------------ --------------------------------------------------------------------
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Address.user property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to User so that you can access/update Address objects from it - e.g. $user->getAddresses()? (yes/no) [yes]:
+ > 
+
+ A new property will also be added to the User class so that you can access the related Address objects from it.
+
+ New field name inside User [addresses]:
+ >
+
+ Do you want to activate orphanRemoval on your relationship?
+ A Address is "orphaned" when it is removed from its related User.
+ e.g. $user->removeAddress($address)
+
+ NOTE: If a Address may *change* from one User to another, answer "no".
+
+ Do you want to automatically delete orphaned App\Entity\Address objects (orphanRemoval)? (yes/no) [no]:
+ >
+
+ updated: src/Entity/Address.php
+ updated: src/Entity/User.php
+
+On cree la migration :
+C:\Users\franc\Desktop\express-ecommerce> php bin/console make:admin:crud
+C:\Users\franc\Desktop\express-ecommerce> php bin/console make:migration
+C:\Users\franc\Desktop\express-ecommerce> php bin/console doctrine:migrations:migrate
+
+Section 30 cours 194....
 -------------------------------------------------------------------------------------------------------------------------------------------
 IVS-CA-AVE-ALGOPSGWOMXFC0QV     Dossier AVE pour le CANADA.
 ----------------------------------------------------------------------------------------------------------------------------------------------
