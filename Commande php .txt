@@ -93,10 +93,6 @@ C:\Users\franc\Desktop\express-ecommerce> php bin/console make:crud
 
  Do you want to generate tests for the controller?. [Experimental] (yes/no) [no]
 
-section30 cours 196 
-
-
-
  ------------ ------------------------------------------------------------------------------------------------------------------------------------------ 
   Type         Description
  ------------ --------------------------------------------------------------------
@@ -144,7 +140,70 @@ C:\Users\franc\Desktop\express-ecommerce> php bin/console make:admin:crud
 C:\Users\franc\Desktop\express-ecommerce> php bin/console make:migration
 C:\Users\franc\Desktop\express-ecommerce> php bin/console doctrine:migrations:migrate
 
-Section 30 cours 194....
+.
+
+PS C:\Users\franc\Desktop\express-ecommerce> php bin/console make:controller Api\ApiAddress
+
+On va travailler sur la gestion du transport. En commençant par créer l'entité Carrier ( Transport ou livraison)
+PS C:\Users\franc\Desktop\express-ecommerce> php bin/console make:entity Carrier
+
+On va ensuite créer le CRUD.
+C:\Users\franc\Desktop\express-ecommerce> php bin/console make:admin:crud
+Ensuite je vais dans SRC/Controller/admin et j'ajoute dans le Dashbord l'entité Carrier pour etre visible sur notre Admin.
+
+Section 32 cours 213...
+
+Gestion des commandes
+database_uml
+4-Orders
+-Client_name
+-Client_address
+-Quantity
+-price_HT
+-price_TTC
+-taxe
+-isPayed
+-status
+-carrier_price
+-carrier_name
+-order_details 
+
+5-OrderDetails
+ -product_name
+ -product_description
+ -product_price
+ -quantity
+ -taxe
+ -subtotal
+ -order
+
+Création des entités commandes
+ php bin/console make:entity Order
+Création des détails de la commande
+ php bin/console make:entity OrderDetails
+
+On fait la migration
+
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+
+après on cree un CRUD pour ORDER ( Commande )
+
+Section 33 cours 220...
+Gestion des paiements en ligne
+On va créer une entité Payment_method
+php bin/console make:entity payment_method
+
+Puis un CRUD
+php bin/console make:admin:crud
+
+Ensuite on fait les migrations des entités:
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+
+Après on personnalise les champs qui seront affichés dans notre payment methode
+
+
 -------------------------------------------------------------------------------------------------------------------------------------------
 IVS-CA-AVE-ALGOPSGWOMXFC0QV     Dossier AVE pour le CANADA.
 ----------------------------------------------------------------------------------------------------------------------------------------------
